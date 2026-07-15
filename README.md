@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Full-Stack Authentication
+
+A complete full-stack authentication system built with Next.js App Router, MongoDB, and JSON Web Tokens (JWT). This project provides a robust foundation for building secure applications with user registration, login, email verification, and password reset functionalities.
+
+## Features
+
+- **User Authentication**: Secure signup and login flows using `bcryptjs` for password hashing.
+- **Session Management**: Cookie-based sessions using `jsonwebtoken` (JWT) and Next.js middleware for route protection.
+- **Email Verification**: Account verification workflow using `nodemailer` to send emails with secure tokens.
+- **Password Reset**: Forgot password and reset password functionality via secure email links.
+- **Database**: MongoDB integration using `mongoose`.
+- **Styling**: Tailwind CSS for modern, responsive UI design.
+- **API Routes**: Next.js Serverless API routes for handling backend logic.
+
+## Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: TypeScript
+- **Database**: MongoDB & Mongoose
+- **Authentication**: JWT & Bcrypt.js
+- **Email Service**: Nodemailer
+- **Styling**: Tailwind CSS
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18 or higher)
+- MongoDB Database (Local or MongoDB Atlas)
+- Gmail account (or any SMTP server for sending emails)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/somcpp/NextJs-full-stack-auth.git
+   cd NextJs-full-stack-auth
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Create a `.env` file in the root directory and add the following environment variables:
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   TOKEN_SECRET=your_jwt_secret_key
+   DOMAIN=http://localhost:3000
+   USER=your_email@gmail.com
+   GOOGLE_APP_PASSWORD=your_email_app_password
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+- `src/app`: Contains all frontend pages (login, signup, profile, verifyEmail, resetpassword) and API routes (`src/app/api`).
+- `src/models`: Mongoose database models (User schema).
+- `src/dbConfig`: MongoDB connection setup.
+- `src/helpers`: Utility functions for JWT data extraction and sending emails via Nodemailer.
+- `src/middleware.ts`: Next.js middleware for route protection (protecting `/profile` and redirecting authenticated users from public routes).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open-source and available under the [MIT License](LICENSE).
