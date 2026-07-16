@@ -62,7 +62,7 @@ const mailOptions = {
       <h2>${emailType === "VERIFY" ? "Verify Your Email" : "Reset Your Password"}</h2>
       <p>Thank you for registering. Please click the button below to complete the process:</p>
       <p style="margin: 24px 0;">
-        <a href="${actionUrl}" style="background-color: #4F46E5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+        <a href="${actionUrl}" style="display: inline-block; background-color: #4F46E5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">
           ${emailType === "VERIFY" ? "Verify Email Address" : "Reset Password"}
         </a>
       </p>
